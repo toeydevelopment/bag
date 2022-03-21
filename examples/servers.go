@@ -1,12 +1,11 @@
-# Bag a simple balance algorithm in golang
-Bag is stand for Balance Algorithm in Generic
+package main
 
-### Example
+import (
+	"context"
+	"net/url"
 
-generic style
-```go
-
-
+	"github.com/toeydevelopment/bag"
+)
 
 type server struct {
 	url        url.URL
@@ -45,24 +44,5 @@ func Server() {
 	lb, _ = bag.NewLeastConnection(servers...)
 
 	lb.Next(context.TODO())
-}
-
-
-func Dynamic() {
-	var (
-		lb  bag.LoadBalancer[int]
-		err error
-	)
-
-	lb, err = bag.NewLeastConnection(1, 2, 3)
-
-	_ = lb
-	_ = err
-
-	lb, err = bag.NewRoundRobin(1, 2, 3)
-
-	_ = lb
-	_ = err
 
 }
-```
